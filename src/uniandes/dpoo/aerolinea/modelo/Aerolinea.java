@@ -379,7 +379,16 @@ public class Aerolinea
     public void registrarVueloRealizado( String fecha, String codigoRuta )
     {
         // TODO Implementar el método
-    	
+    		Vuelo vuelo = getVuelo( codigoRuta, fecha );
+        if (vuelo == null) {
+            return; // No hay vuelo para esos datos; no se realiza acción.
+        }
+        // Marcar como usados los tiquetes del vuelo para cada cliente
+        for (Cliente c : this.clientes.values()) {
+            if (c != null) {
+                c.usarTiquetes( vuelo );
+            }
+        }
     }
 
     /**
