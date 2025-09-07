@@ -8,10 +8,40 @@ import org.json.JSONObject;
 public class ClienteCorporativo extends Cliente
 {
     // TODO completar
+    public String CORPORATIVO = "Corporativo";
+    public int GRANDE = 1;
+    public int MEDIANA = 2;
+    public int PEQUENA = 3;
+    private String nombreEmpresa;
+    private int tamanoEmpresa;
     
+    public ClienteCorporativo(String nombreEmpresa, int tamanoEmpresa) {
+		this.nombreEmpresa = nombreEmpresa;
+		this.tamanoEmpresa = tamanoEmpresa;
+	}
 
+	public String getNombreEmpresa() {
+		return nombreEmpresa;
+	}
 
-    /**
+	public int getTamanoEmpresa() {
+		return tamanoEmpresa;
+	}
+	
+	@Override
+	public String getTipoCliente() {
+		// TODO Auto-generated method stub
+		return CORPORATIVO;
+	}
+
+	@Override
+	public String getIdentificador() {
+		// TODO Auto-generated method stub
+		return nombreEmpresa;
+	}
+	
+
+	 /**
      * Crea un nuevo objeto de tipo a partir de un objeto JSON.
      * 
      * El objeto JSON debe tener dos atributos: nombreEmpresa (una cadena) y tamanoEmpresa (un número).
@@ -25,7 +55,8 @@ public class ClienteCorporativo extends Cliente
         return new ClienteCorporativo( nombreEmpresa, tam );
     }
 
-    /**
+	
+	/**
      * Salva este objeto de tipo ClienteCorporativo dentro de un objeto JSONObject para que ese objeto se almacene en un archivo
      * @return El objeto JSON con toda la información del cliente corporativo
      */
@@ -37,4 +68,6 @@ public class ClienteCorporativo extends Cliente
         jobject.put( "tipo", CORPORATIVO );
         return jobject;
     }
+	
+	
 }
