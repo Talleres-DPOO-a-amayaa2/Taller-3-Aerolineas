@@ -19,6 +19,15 @@
 			"tamanoEmpresa": 2
 		}
 	],
+	"rutas": [
+		{
+			"horaSalida": ,
+			"horaLlegada": , 
+			"codigoRuta": "4558", 
+			"destino": "Bogotá",
+			"origen": "Medellín"
+		}	
+	],
 	"tiquetes": [
 		{
 			"codigoRuta": "4558",

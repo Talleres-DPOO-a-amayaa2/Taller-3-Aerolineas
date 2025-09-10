@@ -232,7 +232,7 @@ public class Aerolinea
     public void salvarAerolinea( String archivo, String tipoArchivo ) throws TipoInvalidoException, IOException
     {
         // TODO implementar
-    	IPersistenciaAerolinea cargador = CentralPersistencia.getPersistenciaAerolinea( tipoArchivo );
+    		IPersistenciaAerolinea cargador = CentralPersistencia.getPersistenciaAerolinea( tipoArchivo );
         cargador.salvarAerolinea( archivo, this );
     }
 
@@ -263,6 +263,8 @@ public class Aerolinea
         IPersistenciaTiquetes cargador = CentralPersistencia.getPersistenciaTiquetes( tipoArchivo );
         cargador.salvarTiquetes( archivo, this );
     }
+    
+    
 
     // ************************************************************************************
     //

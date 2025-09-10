@@ -26,5 +26,4 @@ public interface IPersistenciaTiquetes
      * @throws IOException Se lanza esta excepción si hay problemas escribiendo el archivo
      */
     public void salvarTiquetes( String archivo, Aerolinea aerolinea ) throws IOException;
-
 }
