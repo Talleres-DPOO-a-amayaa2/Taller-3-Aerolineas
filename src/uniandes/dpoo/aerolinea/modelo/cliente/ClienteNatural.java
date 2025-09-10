@@ -2,7 +2,7 @@ package uniandes.dpoo.aerolinea.modelo.cliente;
 
 public class ClienteNatural extends Cliente {
 
-	public String NATURAL = "Natural";
+	public static String NATURAL = "Natural";
 	private String nombre;
 	
 	
@@ -20,7 +20,7 @@ public class ClienteNatural extends Cliente {
 	@Override
 	public String getIdentificador() {
 		// TODO Auto-generated method stub
-		return nombre;
+		return nombre + nombre.hashCode();
 	}
 	
 	

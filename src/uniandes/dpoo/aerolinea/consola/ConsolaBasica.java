@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Collection;
 import java.util.Iterator;
+import uniandes.dpoo.aerolinea.consola.ConsolaArerolinea;
 
 /**
  * Esta es una clase abstracta que implementa métodos útiles para todas las consolas de la aplicación.

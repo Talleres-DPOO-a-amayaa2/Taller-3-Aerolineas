@@ -218,7 +218,7 @@ public class Aerolinea
     public void cargarAerolinea( String archivo, String tipoArchivo ) throws TipoInvalidoException, IOException, InformacionInconsistenteException
     {
         // TODO implementar
-    		IPersistenciaAerolinea cargador = CentralPersistencia.getPersistenciaAerolinea( tipoArchivo );
+    	IPersistenciaAerolinea cargador = CentralPersistencia.getPersistenciaAerolinea( tipoArchivo );
         cargador.cargarAerolinea( archivo, this );
     }
 
@@ -232,7 +232,7 @@ public class Aerolinea
     public void salvarAerolinea( String archivo, String tipoArchivo ) throws TipoInvalidoException, IOException
     {
         // TODO implementar
-    		IPersistenciaAerolinea cargador = CentralPersistencia.getPersistenciaAerolinea( tipoArchivo );
+    	IPersistenciaAerolinea cargador = CentralPersistencia.getPersistenciaAerolinea( tipoArchivo );
         cargador.salvarAerolinea( archivo, this );
     }
 
@@ -291,14 +291,14 @@ public class Aerolinea
         if (ruta == null) {
             throw new Exception("No existe la ruta: " + codigoRuta);
         }
-        Avion avionSeleccionado = null;
+        Avion avion = null;
         for (Avion a : this.aviones) {
             if (a != null && nombreAvion.equals(a.getNombre())) {
-                avionSeleccionado = a;
+                avion = a;
                 break;
             }
         }
-        if (avionSeleccionado == null) {
+        if (avion == null) {
             throw new Exception("No existe el avión: " + nombreAvion);
         }
         
@@ -316,8 +316,8 @@ public class Aerolinea
             }
         }
         // Si todo está bien, crear y registrar el vuelo
-        Vuelo nuevo = new Vuelo( fecha, ruta, avionSeleccionado );
-        this.vuelos.add( nuevo );
+        Vuelo nuevo = new Vuelo( fecha, ruta, avion );
+        vuelos.add( nuevo );
     }
 
     /**
@@ -347,7 +347,7 @@ public class Aerolinea
         if (vuelo == null) {
             throw new Exception("No existe el vuelo para la ruta " + codigoRuta + " en la fecha " + fecha);
         }
-        // Determinar temporada: baja (septiembre-noviembre) o alta (resto)
+        
         int mes = -1;
         String norm = fecha.replace('-', '/');
         String[] partes = norm.split("/");
@@ -355,7 +355,7 @@ public class Aerolinea
             if (partes.length >= 2) {
                 mes = Integer.parseInt(partes[1]);
             } else if (norm.length() >= 6) {
-                // Formato yyyymmdd
+
                 mes = Integer.parseInt(norm.substring(4, 6));
             }
         } catch (NumberFormatException e) {
@@ -383,7 +383,7 @@ public class Aerolinea
         if (vuelo == null) {
             return; // No hay vuelo para esos datos; no se realiza acción.
         }
-        // Marcar como usados los tiquetes del vuelo para cada cliente
+        
         for (Cliente c : this.clientes.values()) {
             if (c != null) {
                 c.usarTiquetes( vuelo );
