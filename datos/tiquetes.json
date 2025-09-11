@@ -19,15 +19,6 @@
 			"tamanoEmpresa": 2
 		}
 	],
-	"rutas": [
-		{
-			"horaSalida": ,
-			"horaLlegada": , 
-			"codigoRuta": "4558", 
-			"destino": "Bogotá",
-			"origen": "Medellín"
-		}	
-	],
 	"tiquetes": [
 		{
 			"codigoRuta": "4558",
@@ -37,5 +28,33 @@
 			"usado": false,
 			"cliente": "Bob"
 		}
+	], 
+	"rutas": [
+	    {
+	      "codigoRuta": "4558",
+	      "horaSalida": "0700",
+	      "horaLlegada": "0830",
+	      "origen": {
+	        "nombre": "El Dorado",
+	        "codigo": "BOG",
+	        "nombreCiudad": "Bogotá",
+	        "latitud": 4.701,
+	        "longitud": -74.146
+	      },
+	      "destino": {
+	        "nombre": "JMC",
+	        "codigo": "MDE",
+	        "nombreCiudad": "Medellín",
+	        "latitud": 6.168,
+	        "longitud": -75.423
+	      }
+	    }
+	  ], 
+	"vuelos": [
+	  {
+	    "fecha": "2024-11-05",
+	    "codigoRuta": "4558",
+	    "avion": "A320-1"
+	  }
 	]
 }

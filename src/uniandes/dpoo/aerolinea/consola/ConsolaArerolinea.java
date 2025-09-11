@@ -2,6 +2,9 @@ package uniandes.dpoo.aerolinea.consola;
 
 import java.io.IOException;
 
+import org.json.JSONException;
+
+import uniandes.dpoo.aerolinea.exceptions.AeropuertoDuplicadoException;
 import uniandes.dpoo.aerolinea.exceptions.InformacionInconsistenteException;
 import uniandes.dpoo.aerolinea.modelo.Aerolinea;
 import uniandes.dpoo.aerolinea.persistencia.CentralPersistencia;
@@ -13,6 +16,8 @@ public class ConsolaArerolinea extends ConsolaBasica
 
     /**
      * Es un método que corre la aplicación y realmente no hace nada interesante: sólo muestra cómo se podría utilizar la clase Aerolínea para hacer pruebas.
+     * @throws AeropuertoDuplicadoException 
+     * @throws JSONException 
      */
     public void correrAplicacion( )
     {
