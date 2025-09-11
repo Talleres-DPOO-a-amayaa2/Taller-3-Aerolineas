@@ -1,5 +1,7 @@
 package uniandes.dpoo.aerolinea.persistencia;
 
+import java.io.IOException;
+
 import org.json.JSONException;
 
 import uniandes.dpoo.aerolinea.exceptions.AeropuertoDuplicadoException;
