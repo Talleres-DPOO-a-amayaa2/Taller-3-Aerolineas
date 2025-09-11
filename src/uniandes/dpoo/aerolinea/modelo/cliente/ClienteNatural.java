@@ -20,7 +20,7 @@ public class ClienteNatural extends Cliente {
 	@Override
 	public String getIdentificador() {
 		// TODO Auto-generated method stub
-		return nombre + nombre.hashCode();
+		return nombre;
 	}
 	
 	

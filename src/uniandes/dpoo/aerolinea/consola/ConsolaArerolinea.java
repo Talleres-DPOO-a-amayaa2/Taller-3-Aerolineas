@@ -7,6 +7,7 @@ import org.json.JSONException;
 import uniandes.dpoo.aerolinea.exceptions.AeropuertoDuplicadoException;
 import uniandes.dpoo.aerolinea.exceptions.InformacionInconsistenteException;
 import uniandes.dpoo.aerolinea.modelo.Aerolinea;
+import uniandes.dpoo.aerolinea.modelo.Ruta;
 import uniandes.dpoo.aerolinea.persistencia.CentralPersistencia;
 import uniandes.dpoo.aerolinea.persistencia.TipoInvalidoException;
 
@@ -19,14 +20,21 @@ public class ConsolaArerolinea extends ConsolaBasica
      * @throws AeropuertoDuplicadoException 
      * @throws JSONException 
      */
-    public void correrAplicacion( )
+    public void correrAplicacion( ) throws JSONException, AeropuertoDuplicadoException
     {
         try
         {
             unaAerolinea = new Aerolinea( );
             // String archivo = this.pedirCadenaAlUsuario( "Digite el nombre del archivo json con la información de una aerolinea" );
             String archivo = "tiquetes.json"; 
+            unaAerolinea.cargarAerolinea("./datos/" + archivo, CentralPersistencia.JSON);
+            //System.out.println("Rutas cargadas: " + unaAerolinea.getRutas().size());
+            //for (Ruta r : unaAerolinea.getRutas())
+               // System.out.println("Ruta: [" + r.getCodigoRuta() + "]");
+            //System.out.println("Ruta 4558 existe? " + (unaAerolinea.getRuta("4558") != null));
             unaAerolinea.cargarTiquetes( "./datos/" + archivo, CentralPersistencia.JSON );
+        
+
         }
         catch( TipoInvalidoException e )
         {
@@ -42,7 +50,7 @@ public class ConsolaArerolinea extends ConsolaBasica
         }
     }
 
-    public static void main( String[] args )
+    public static void main( String[] args ) throws JSONException, AeropuertoDuplicadoException
     {
         ConsolaArerolinea ca = new ConsolaArerolinea( );
         ca.correrAplicacion( );

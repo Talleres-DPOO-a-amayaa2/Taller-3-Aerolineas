@@ -220,10 +220,11 @@ public class Aerolinea
      * @throws AeropuertoDuplicadoException 
      * @throws JSONException 
      */
-    public void cargarAerolinea( String archivo, String tipoArchivo )
+    public void cargarAerolinea( String archivo, String tipoArchivo ) throws TipoInvalidoException, JSONException, AeropuertoDuplicadoException
     {
         // TODO implementar
-    	
+    	IPersistenciaAerolinea cargador = CentralPersistencia.getPersistenciaAerolinea( tipoArchivo );
+        cargador.cargarAerolinea( archivo, this );
     }
 
     /**
@@ -233,10 +234,11 @@ public class Aerolinea
      * @throws TipoInvalidoException Se lanza esta excepción si se indica un tipo de archivo inválido
      * @throws IOException Lanza esta excepción si hay problemas escribiendo en el archivo
      */
-    public void salvarAerolinea( String archivo, String tipoArchivo ) 
+    public void salvarAerolinea( String archivo, String tipoArchivo ) throws TipoInvalidoException 
     {
         // TODO implementar
-    	
+    	IPersistenciaAerolinea cargador = CentralPersistencia.getPersistenciaAerolinea( tipoArchivo );
+        cargador.salvarAerolinea( archivo, this );
     }
 
     /**
